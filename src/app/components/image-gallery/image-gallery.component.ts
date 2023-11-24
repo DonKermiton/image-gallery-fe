@@ -20,7 +20,10 @@ import {AddImageComponent} from "../../share/add-image/add-image.component";
 export class ImageGalleryComponent implements OnInit {
   public images: GalleryTypes.ImageContainer[] = [];
 
-  constructor(private galleryService: GalleryService, private destroyRef: DestroyRef, private imageRefreshGallery: ImageGalleryRefreshService, private dialog: MatDialog) {
+  constructor(private galleryService: GalleryService,
+              private destroyRef: DestroyRef,
+              private imageRefreshGallery: ImageGalleryRefreshService,
+              private dialog: MatDialog) {
 
   }
 
@@ -35,7 +38,7 @@ export class ImageGalleryComponent implements OnInit {
           this.images = this.images.filter(image => image.filename !== (images.image as GalleryTypes.ImageContainer).filename)
         } else if (images.type === 'add') {
           if (Array.isArray(images.image)) {
-            this.images.unshift(images.image[0]);
+            this.images.unshift(...images.image);
           }
         }
       });
