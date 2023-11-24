@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {GalleryService} from "./services/gallery/gallery.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'image-gallery-fe';
+  constructor() {
+
+  }
 }

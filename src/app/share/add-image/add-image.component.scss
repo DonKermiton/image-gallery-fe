@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  min-width: 1000px;
+}
+
+.img-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  img {
+    display: inline-block;
+    height: 100%;
+    width: 200px
+  }
+}

@@ -1,0 +1,26 @@
+.img-container {
+  display: block;
+  height: 200px;
+  max-width: 400px;
+  position: relative;
+
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .delete-box {
+    height: 30px;
+    width: 30px;
+    line-height: 45px;
+    text-align: center;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    cursor: pointer;
+  }
+}

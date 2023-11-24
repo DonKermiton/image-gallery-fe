@@ -1,0 +1,7 @@
+<div>
+  <button mat-raised-button (click)="addImage()">Add Image</button>
+</div>
+
+<div class="container" >
+    <app-image-preview [image]="image" *ngFor="let image of images"></app-image-preview>
+</div>
