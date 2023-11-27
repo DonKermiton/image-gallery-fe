@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{post.title}}</mat-card-title>
+    <mat-card-subtitle>{{post.collection}}  </mat-card-subtitle>
+  </mat-card-header>
+  <div class="post-image">
+    <button *ngIf="post.images.length > 1" (click)="sliderTo(-1)"> < </button>
+    <img mat-card-image *ngIf="post.images[currentIndex]" [src]="post.images[currentIndex].uri"
+         onerror="this.onerror=null; this.src='/assets/placeholde.svg'" alt="image not loaded">
+    <button *ngIf="post.images.length > 1" class="right" (click)="sliderTo(+1)"> > </button>
+  </div>
+
+  <mat-card-content>
+    <p>
+      {{post.description}}
+    </p>
+    <small>
+      {{post.created | date}}
+    </small>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="delete()">delete</button>
+  </mat-card-actions>
+</mat-card>

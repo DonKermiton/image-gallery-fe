@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.img-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  img {
+    display: inline-block;
+    height: 100%;
+    width: 200px
+  }
+}

@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>
+  Add image
+</h1>
+
+<div mat-dialog-content>
+  <mat-stepper #stepper>
+    <mat-step>
+      <button *ngIf="!savedImages.length" mat-raised-button [disabled]=" images === null || images?.length == 0" (click)="publishImages()">Upload Images</button>
+      <button mat-raised-button *ngIf="savedImages && savedImages.length" color="primary" (click)="stepper.next()">Next</button>
+      <hr>
+      <ng-template matStepLabel>Publish images</ng-template>
+      <app-add-image (imagesUpdated)="updateImages($event)"></app-add-image>
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Add Information</ng-template>
+      <form [formGroup]="imageInfoForm" style="display: flex; flex-direction: column">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" placeholder="Type title">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <input matInput formControlName="collection" placeholder="Type category" >
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Type description</mat-label>
+          <textarea matInput formControlName="description" placeholder="Type description"></textarea>
+        </mat-form-field>
+      </form>
+    </mat-step>
+  </mat-stepper>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="!savedImages.length || imageInfoForm.invalid" (click)="add()">Publish</button>
+</div>

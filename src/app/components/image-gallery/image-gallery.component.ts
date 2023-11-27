@@ -5,10 +5,10 @@ import {ImagePreviewComponent} from "./image-preview/image-preview.component";
 import {GalleryTypes} from './../../services/gallery/index'
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {MatButtonModule} from "@angular/material/button";
-import {ImageGalleryRefreshService} from "../image-gallery-refresh.service";
+import {ImageGalleryRefreshService} from "./image-gallery-refresh.service";
 import {switchMap, tap} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
-import {AddImageComponent} from "../../share/add-image/add-image.component";
+import {AddImageDialogComponent} from "../../share/add-image-dialog/add-image-dialog.component";
 
 @Component({
   selector: 'app-image-gallery',
@@ -45,7 +45,7 @@ export class ImageGalleryComponent implements OnInit {
   }
 
   public addImage(): void {
-    this.dialog.open(AddImageComponent, {}).afterClosed()
+    this.dialog.open(AddImageDialogComponent, {}).afterClosed()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((res: GalleryTypes.ImageContainer[] | null) => {
         if (res) {

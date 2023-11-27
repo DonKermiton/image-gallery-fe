@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>
+  Add image
+</h1>
+
+<div mat-dialog-content>
+  <app-add-image (imagesUpdated)="updateImages($event)"></app-add-image>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="add()">Add</button>
+</div>

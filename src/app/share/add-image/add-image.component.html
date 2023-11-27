@@ -1,19 +1,7 @@
-<h1 mat-dialog-title>
-  Add image
-</h1>
+<input mat-raised-button type="file" [accept]="allowedMimes" (change)="onFileChange($event)" multiple>
 
-<div mat-dialog-content>
-  <input mat-raised-button type="file" [accept]="allowedMimes" (change)="onFileChange($event)" multiple>
-
-  <div *ngIf="images">
-      <div class="img-preview-container" >
-        <img [src]="image.preview" *ngFor="let image of images" >
-      </div>
+<div *ngIf="images">
+  <div class="img-preview-container" >
+    <img [src]="image.preview" *ngFor="let image of images" >
   </div>
-
-</div>
-
-<div mat-dialog-actions>
-  <button mat-button (click)="cancel()">Cancel</button>
-  <button mat-raised-button color="primary" (click)="add()">Add</button>
 </div>

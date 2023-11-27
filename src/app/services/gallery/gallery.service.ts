@@ -18,13 +18,12 @@ export class GalleryService {
     return this.http.get<GalleryTypes.ImageContainer>(`http://localhost:5291/images/${imageName}`)
   }
 
-  public postImage(files: File[]): Observable<GalleryTypes.ImageContainer[]> {
+  public postImage(files: FileList): Observable<GalleryTypes.ImageContainer[]> {
     const formData = new FormData();
 
-    files.forEach((file, index) => {
-      formData.append(`images`, file, file.name);
-    })
-
+    for(let i = 0; i < files.length; i++) {
+      formData.append(`images`, files[i], files[i].name);
+    }
     return this.http.post<GalleryTypes.ImageContainer[]>('http://localhost:5291/images', formData)
   }
 

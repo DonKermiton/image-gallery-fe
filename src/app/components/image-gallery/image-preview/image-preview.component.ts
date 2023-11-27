@@ -7,7 +7,7 @@ import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {ConfirmDialogComponent} from "../../../share/confirm-dialog/confirm-dialog.component";
 import {EMPTY, iif, mergeMap} from "rxjs";
-import {ImageGalleryRefreshService} from "../../image-gallery-refresh.service";
+import {ImageGalleryRefreshService} from "../image-gallery-refresh.service";
 
 @Component({
   selector: 'app-image-preview',
